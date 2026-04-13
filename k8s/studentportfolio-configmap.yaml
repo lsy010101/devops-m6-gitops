@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: studentportfolio-html
+data:
+  index.html: |
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Pixel River Financial Bank Application</title>
+    </head>
+    <body>
+      <h1>Pixel River Financial Bank Application - Deployed via Kubernetes</h1>
+      <p>Student Portfolio Home</p>
+      <ul>
+        <li><a href="/api/register">Register</a></li>
+        <li><a href="/api/login">Login</a></li>
+        <li><a href="/api/transactions">View Transactions API</a></li>
+      </ul>
+    </body>
+    </html>

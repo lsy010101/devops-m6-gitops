@@ -1,0 +1,101 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-templates
+data:
+  register.html: |
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Pixel River Financial Bank Application</title>
+    </head>
+    <body>
+      <h1>Pixel River Financial Bank Application - Deployed via Kubernetes</h1>
+      <h2>Register</h2>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      <form method="post" action="/api/register">
+        <label>Username: <input name="username" required></label><br><br>
+        <label>Password: <input type="password" name="password" required></label><br><br>
+        <button type="submit">Register</button>
+      </form>
+
+      <p><a href="/api/login">Already have an account? Login</a></p>
+    </body>
+    </html>
+  login.html: |
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Pixel River Financial Bank Application</title>
+    </head>
+    <body>
+      <h1>Pixel River Financial Bank Application - Deployed via Kubernetes</h1>
+      <h2>Login</h2>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      <form method="post" action="/api/login">
+        <label>Username: <input name="username" required></label><br><br>
+        <label>Password: <input type="password" name="password" required></label><br><br>
+        <button type="submit">Login</button>
+      </form>
+
+      <p><a href="/api/register">Need an account? Register</a></p>
+    </body>
+    </html>
+  dashboard.html: |
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Pixel River Financial Bank Application</title>
+    </head>
+    <body>
+      <h1>Pixel River Financial Bank Application - Deployed via Kubernetes</h1>
+      <h2>Dashboard</h2>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      <p>Welcome, {{ username }}</p>
+      <p>Current Balance: {{ '%.2f'|format(balance) }}</p>
+
+      <form method="post" action="/api/dashboard">
+        <label>Amount: <input name="amount" required></label>
+        <button type="submit" name="action" value="deposit">Deposit</button>
+        <button type="submit" name="action" value="withdraw">Withdraw</button>
+      </form>
+
+      <p><a href="/api/logout">Logout</a></p>
+    </body>
+    </html>
