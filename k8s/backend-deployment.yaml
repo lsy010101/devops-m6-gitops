@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: backend:latest
+          image: ghcr.io/lsy010101/devops-m6-backend:34fc76e4106f59234606f87ced7919d79e5b796e
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
