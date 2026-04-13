@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: studentportfolio
-          image: ghcr.io/lsy010101/devops-m6-studentportfolio:34fc76e4106f59234606f87ced7919d79e5b796e
+          image: ghcr.io/lsy010101/devops-m6-studentportfolio:8e338b4c10ec6a378ebf37f27e639a718cc90aa7
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
